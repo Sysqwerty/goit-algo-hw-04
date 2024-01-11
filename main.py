@@ -59,15 +59,15 @@ def main():
     for i in [1000, 10000, 20000]:
         arr = random.sample(range(i), i)
         insertion_sort_time = timeit.timeit(
-            lambda: insertion_sort(arr), number=1)
-        merge_sort_time = timeit.timeit(lambda: merge_sort(arr), number=1)
+            lambda: insertion_sort(arr[:]), number=1)
+        merge_sort_time = timeit.timeit(lambda: merge_sort(arr[:]), number=1)
         timesort_sort_time = timeit.timeit(
-            lambda: timesort_sort(arr), number=1)
+            lambda: timesort_sort(arr[:]), number=1)
 
         print(f"========== розмір масиву: {i} ==========")
-        print(f"{'insertion_sort':<15} > {insertion_sort_time:<}")
-        print(f"{'merge_sort':<15} > {merge_sort_time:<}")
-        print(f"{'timesort_sort':<15} > {timesort_sort_time:<}")
+        print(f"| {'insertion_sort':<15} | {insertion_sort_time:<6.5f} |")
+        print(f"| {'merge_sort':<15} | {merge_sort_time:<6.5f} |")
+        print(f"| {'timesort_sort':<15} | {timesort_sort_time:<6.5f} |")
         print()
 
 
